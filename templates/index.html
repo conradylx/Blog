@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="outer-container">
+    <header class="site-header"></header>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="site-branding flex flex-column align-items-center">
+                <h1 class="site-title"><a href="index.html" rel="home">Rip van Winkle</a></h1>
+                <p class="site-description">I don't know what to do this site about...</p>
+            </div><!-- .site-branding -->
+
+            <nav class="site-navigation">
+                <div class="hamburger-menu d-lg-none">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div><!-- .hamburger-menu -->
+
+                <ul class="flex-lg flex-lg-row justify-content-lg-center align-content-lg-center">
+                    <!--                            <li class="current-menu-item"><a href="index.html">Home</a></li>-->
+                    <li><a href="#">Programowanie</a></li>
+                    <li><a href="#">Technologie</a></li>
+                    <li><a href="blog.html">Książki</a></li>
+                    <li><a href="about.html">Inne</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+
+                    <div class="header-bar-search d-none d-md-block ml-auto">
+                        <form id="search-form">
+                            <input type="search" placeholder="One search to rule them all">
+                        </form>
+                    </div>
+                </ul>
+                <div class="header-bar-search d-md-none">
+                    <form>
+                        <input type="search" placeholder="Search">
+                    </form>
+                </div><!-- .header-bar-search -->
+            </nav><!-- .site-navigation -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+</div><!-- .container -->
+
+<div class="container single-page">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="content-wrap">
+                <header class="entry-header">
+                    <div class="posted-date">
+                        January 04, 2021
+                    </div><!-- .posted-date -->
+
+                    <h2 class="entry-title">Django lesson 1: A short story</h2>
+
+                    <div class="tags-links">
+                        <a href="#">#django</a>
+                        <a href="#">#programming</a>
+                        <a href="#">#lesson</a>
+                        <a href="#">#python</a>
+                    </div><!-- .tags-links -->
+                </header><!-- .entry-header -->
+
+                <figure class="featured-image">
+                    <img src="../static_in_env/images/django-1.jpg" alt="">
+                </figure><!-- .featured-image -->
+
+                <div class="entry-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat
+                        nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce
+                        sagittis suscipit sem a consequat. Proin nec interdum sem. Quisque in porttitor magna, a
+                        imperdiet est. </p>
+                </div><!-- .entry-content -->
+
+                <footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+                    <ul class="post-share flex align-items-center order-3 order-lg-1">
+                        <label>Share</label>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul><!-- .post-share -->
+
+                    <a class="read-more order-2" href="#">Read more</a>
+
+                    <div class="comments-count order-1 order-lg-3">
+                        <a href="#">2 Comments</a>
+                    </div><!-- .comments-count -->
+                </footer><!-- .entry-footer -->
+            </div><!-- .content-wrap -->
+
+            <div class="content-wrap">
+                <header class="entry-header">
+                    <div class="posted-date">
+                        January 30, 2018
+                    </div><!-- .posted-date -->
+
+                    <h2 class="entry-title">Travel tips for nature loversy</h2>
+
+                    <div class="tags-links">
+                        <a href="#">#winter</a>
+                        <a href="#">#love</a>
+                        <a href="#">#snow</a>
+                        <a href="#">#january</a>
+                    </div><!-- .tags-links -->
+                </header><!-- .entry-header -->
+
+                <figure class="featured-image">
+                    <img src="../static_in_env/images/2.jpg" alt="">
+                </figure><!-- .featured-image -->
+
+                <div class="entry-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat
+                        nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce
+                        sagittis suscipit sem a consequat. Proin nec interdum sem. Quisque in porttitor magna, a
+                        imperdiet est. </p>
+                </div><!-- .entry-content -->
+
+                <footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+                    <ul class="post-share flex align-items-center order-3 order-lg-1">
+                        <label>Share</label>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul><!-- .post-share -->
+
+                    <a class="read-more order-2" href="#">Read more</a>
+
+                    <div class="comments-count order-1 order-lg-3">
+                        <a href="#">2 Comments</a>
+                    </div><!-- .comments-count -->
+                </footer><!-- .entry-footer -->
+            </div><!-- .content-wrap -->
+
+            <div class="content-wrap">
+                <header class="entry-header">
+                    <div class="posted-date">
+                        January 30, 2018
+                    </div><!-- .posted-date -->
+
+                    <h2 class="entry-title">How to get dress on a hiking trip</h2>
+
+                    <div class="tags-links">
+                        <a href="#">#winter</a>
+                        <a href="#">#love</a>
+                        <a href="#">#snow</a>
+                        <a href="#">#january</a>
+                    </div><!-- .tags-links -->
+                </header><!-- .entry-header -->
+
+                <figure class="featured-image">
+                    <img src="../static_in_env/images/3.jpg" alt="">
+                </figure><!-- .featured-image -->
+
+                <div class="entry-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat
+                        nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce
+                        sagittis suscipit sem a consequat. Proin nec interdum sem. Quisque in porttitor magna, a
+                        imperdiet est. </p>
+                </div><!-- .entry-content -->
+
+                <footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+                    <ul class="post-share flex align-items-center order-3 order-lg-1">
+                        <label>Share</label>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul><!-- .post-share -->
+
+                    <a class="read-more order-2" href="#">Read more</a>
+
+                    <div class="comments-count order-1 order-lg-3">
+                        <a href="#">2 Comments</a>
+                    </div><!-- .comments-count -->
+                </footer><!-- .entry-footer -->
+            </div><!-- .content-wrap -->
+
+            <div class="pagination">
+                <ul class="flex align-items-center">
+                    <li class="active"><a href="#">01.</a></li>
+                    <li><a href="#">02.</a></li>
+                    <li><a href="#">03.</a></li>
+                </ul>
+            </div>
+        </div><!-- .col -->
+
+        <div class="col-12 col-lg-4">
+            <div class="sidebar">
+                <div class="about-me">
+                    <div class="row">
+                        <img class="oval-avatar w-75" src="../static_in_env/images/k.jpg" alt="Youtube Subscribe">
+                    </div>
+                    <h2>I’m Konrad</h2>
+
+                    <p>Siała baba mak mie wiedziała jak a dziad wiedział nie powiedział i to było tak</p>
+                </div><!-- .about-me -->
+
+                <div class="tags-list">
+                    <a href="#">Music</a>
+                    <a href="#">Books</a>
+                    <a href="#">Car</a>
+                    <a href="#">Stories</a>
+                    <a href="#">Photography</a>
+                    <a href="#">Music</a>
+                    <a href="#">Car</a>
+                </div><!-- .tags-list -->
+
+                <div class="sidebar-ads">
+                    <img src="../static_in_env/images/ads.jpg" alt="ads">
+                </div>
+            </div><!-- .sidebar -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+</div><!-- .container -->
+{% endblock content %}
