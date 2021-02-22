@@ -189,12 +189,20 @@ a:hover, a:active {
 
 .site-title {
     font-size: 72px;
-    font-family: 'BeyondTheMountains';
+    font-family: 'BeyondTheMountains', serif;
 }
 
 .site-title a {
     color: #2f2f2f;
+}
+
+.site-title > .main-img{
     text-decoration: none;
+}
+
+.site-title > .main-img:hover{
+    text-decoration: none;
+    color: #2f2f2f;
 }
 
 .site-description {
@@ -321,6 +329,7 @@ a:hover, a:active {
 .site-navigation ul li a:hover,
 .site-navigation ul li.current-menu-item a {
     border-color: #2f2f2f;
+    text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {
@@ -928,6 +937,8 @@ a:hover, a:active {
 .recent-post-wrap {
     margin-top: 42px;
     text-align: center;
+    margin-left: 40px;
+    margin-bottom: 20px;
 }
 
 .recent-post-wrap .posted-date {
@@ -1238,4 +1249,12 @@ a:hover, a:active {
     .footer-social li {
         margin: 0 0 0 30px;
     }
+}
+
+/*-----------------------------------
+    Sidebar
+---------------------------------***/
+figure > img{
+    width: 90%;
+    height: 90%;
 }

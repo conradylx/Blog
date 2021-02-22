@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+    .entry-content img{
+        width: 100%;
+    }
+    .featured-image img{
+        width: 60%;
+    }
+    </style>
+
+    <div class="container single-page blog-page">
+        <div class="row">
+            <div class="col-12">
+                <div class="content-wrap">
+                    <header class="entry-header">
+                        <div class="posted-date">
+                            {{ post.timestamp }}
+                        </div><!-- .posted-date -->
+
+                        <h2 class="entry-title">{{ post.title }}</h2>
+
+                        <div class="tags-links">
+                            {% for tag in post.tags.all %}
+                                <a href="#">#{{ tag }}</a>
+                            {% endfor %}
+                        </div><!-- .tags-links -->
+                    </header><!-- .entry-header -->
+
+                    <figure class="featured-image">
+                        <img src="{{ post.post_image.url }}" alt="">
+                    </figure><!-- .featured-image -->
+
+                    <div class="entry-content">
+                        {{ post.content | safe }}
+                    </div><!-- .row -->
+
+                    <footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+                        <ul class="post-share flex align-items-center order-3 order-lg-1">
+                            <label>Share</label>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul><!-- .post-share -->
+
+                        <div class="comments-count order-1 order-lg-3">
+                            <a href="#">{{ post.comments.count }} comments</a>
+                        </div><!-- .comments-count -->
+                    </footer><!-- .entry-footer -->
+                </div><!-- .content-wrap -->
+
+                <div class="content-area">
+                    <div class="post-comments">
+                        <h3 class="comments-title">Comments</h3>
+
+                        <ol class="comment-list">
+                            <li class="comment">
+                                {% for comment in post.get_comments %}
+                                <div class="comment-body flex justify-content-between" style="margin-top: 20px">
+                                        <figure style="width: 10%;">
+                                            <img src="{% static 'images/user-1.jpg' %}" alt="user" class="rounded-circle">
+                                        </figure><!-- .comment-author-avatar -->
+                                        <div class="comment-wrap" style="border-top: 1px solid silver; ">
+                                            <div class="comment-author flex flex-wrap align-items-center">
+                                            <span class="fn">
+                                                <a href="#">{{ comment.user }}</a>
+                                            </span><!-- .fn -->
+
+                                                <span class="comment-meta">
+                                                <a href="#">{{ comment.timestamp | timesince }}</a>
+                                            </span><!-- .comment-meta -->
+                                            </div><!-- .comment-author -->
+
+                                            <p>{{ comment.content }}</p>
+                                        </div><!-- .comment-wrap -->
+                                </div><!-- .comment-body -->
+                                {% endfor %}
+                            </li><!-- .comment -->
+                        </ol><!-- .comment-list -->
+                    </div><!-- .post-comments -->
+
+                    <div class="comments-form">
+                        <div class="comment-respond">
+                            <h3 class="comment-reply-title">Leave a reply</h3>
+                            <form class="comment-form" method="POST">
+                                {% csrf_token %}
+                                {{ form }}
+                                <input type="submit" value="Submit comment">
+                            </form><!-- .comment-form -->
+                        </div><!-- .comment-respond -->
+                    </div><!-- .comments-form -->
+                </div><!-- .content-area -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+    </div><!-- .outer-container -->
+{% endblock content %}

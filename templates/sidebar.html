@@ -1,0 +1,59 @@
+<div class="col-12 col-lg-4 ">
+{#    <div class="header-bar-search d-none d-md-block" style="margin-top: 150px">#}
+{#        <form action="{% url 'search' %}">#}
+{#            <input type="search" name='q' placeholder="Search" style="min-width:300px">#}
+{#        </form>#}
+{#    </div>#}
+     <form action="{% url 'search' %}">
+      <div class="input-group" style="margin-top: 80px;">
+        <input type="text" name='q' class="form-control" placeholder="Search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="">
+        <div class="about-me sidebar pl-3 pr-3 pt-5 pb-5 border rounded" style="margin-top: 73px; margin-bottom:50px">
+            {% for author in author %}
+                <div class="row">
+                    <img class="oval-avatar w-75" src="{{ author.user_avatar.url }}"
+                         alt="author picture">
+                </div>
+                <h2>I’m {{ author.user }}</h2>
+                <p>{{ author.introduce }}</p>
+            {% endfor %}
+        </div><!-- .about-me -->
+        {#                Latest posts #}
+        <div class="recent-posts border rounded">
+            {% for latest_posts in latest %}
+                <div class="recent-post-wrap">
+                    <figure>
+                        <img src="{{ latest_posts.post_image.url }}" alt="latest post">
+                    </figure>
+
+                    <header class="entry-header">
+                        <div class="posted-date">
+                            {{ latest_posts.timestamp|date:"F d  Y, h:i " }}
+                        </div><!-- .entry-header -->
+
+                        <h3><a href="#">{{ latest_posts.title }} </a></h3>
+
+                        <div class="tags-links">
+                            {% for latest_tags in latest_posts.tags.all %}
+                                <a href="#">#{{ latest_tags }}</a>
+                            {% endfor %}
+                        </div><!-- .tags-links -->
+                    </header><!-- .entry-header -->
+                </div><!-- .recent-post-wrap -->
+            {% endfor %}
+        </div><!-- .recent-posts -->
+
+        <div class="sidebar pl-3 pr-3 pt-5 pb-5 border rounded" style="margin-top: 30px">
+            {% for tags in all_tags %}
+                <a href="#"><span class="btn btn-light">#{{ tags }}</span></a>
+            {% endfor %}
+        </div>
+    </div><!-- .sidebar -->
+</div>

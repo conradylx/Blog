@@ -1,0 +1,41 @@
+{% extends 'base.html' %}}
+{% load static %}
+{% block content %}
+    <div class="container single-page">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="content-wrap">
+                    {% for object in queryset %}
+                        <header class="entry-header">
+                            <div class="posted-date">
+                                {{ object.timestamp|date:"F d  Y, h:i " }}
+                            </div><!-- .posted-date -->
+                            <h2 class="entry-title">{{ object.title }}</h2>
+                            <div>
+                                {% for post_category in object.categories.all %}
+                                    <a href="#"><span class="btn btn-light">#{{ post_category }}</span></a>
+                                {% endfor %}
+                            </div>
+                        </header><!-- .entry-header -->
+                        <figure class="featured-image">
+                            <img src="{{ object.post_image.url }}" alt="">
+                        </figure>
+                        <div class="entry-content">
+                            <p>{{ object.overview }} </p>
+                        </div>
+                        <div>
+                            {% for post_tags in object.tags.all %}
+                                <a href="#"><span class="btn btn-light">#{{ post_tags }}</span></a>
+                            {% endfor %}
+                        </div>
+                        <footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+                            <a href="{{ object.get_absolute_url }}" class="read-more order-2" href="post">Read more</a>
+                        </footer>
+                    {% endfor %}
+
+                </div>
+            </div>
+            {% include 'sidebar.html' %}
+        </div>
+    </div>
+{% endblock content %}
