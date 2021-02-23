@@ -16,10 +16,13 @@
                     </div><!-- .hamburger-menu -->
 
                     <ul class="flex-lg flex-lg-row justify-content-lg-center align-content-lg-center">
-                        <li><a href="#">Programowanie</a></li>
-                        <li><a href="#">Technologie</a></li>
-                        <li><a href="#">Książki</a></li>
-                        <li><a href="#">Inne</a></li>
+                        {% for category in category_list %}
+                            <li><a href="/category/{{ category.title }}">{{ category.title }}</a></li>
+                        {% endfor %}
+{#                        <li><a href="#">Programowanie</a></li>#}
+{#                        <li><a href="#">Technologie</a></li>#}
+{#                        <li><a href="#">Książki</a></li>#}
+{#                        <li><a href="#">Inne</a></li>#}
                         <li><a href="contact">Kontakt</a></li>
                     </ul>
                 </nav><!-- .site-navigation -->

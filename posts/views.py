@@ -1,14 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
-
+from django.views.generic import ListView
+from django.shortcuts import render, get_object_or_404
 from .models import Post, Tags, Author, Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db.models import Q, Count
+from django.db.models import Q
 from .forms import CommentsForm
-
-
-# def categories():
-#     return Post.objects.values('categories__title').annotate(Count('categories__title'))
 
 
 def search(request):
@@ -56,11 +51,10 @@ def contact(request):
 
 
 def index(request):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('-timestamp')
     latest = Post.objects.order_by('-timestamp')[0:4]
     all_tags = Tags.objects.all()[0:10]
     author = Author.objects.all()
-    '''Paginator'''
     paginator = Paginator(queryset, 4)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
@@ -97,3 +91,40 @@ def post(request, id):
     }
     return render(request, 'post.html', context)
 
+
+class CatListView(ListView):
+    template_name = 'category.html'
+    context_object_name = 'catlist'
+
+    def get_queryset(self):
+        content = {
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(categories__title=self.kwargs['category'])
+        }
+        return content
+
+
+class TagsListView(ListView):
+    template_name = 'tags.html'
+    context_object_name = 'taglist'
+
+    def get_queryset(self):
+        all_tags = Tags.objects.all()[0:10]
+        content = {
+            'posts': Post.objects.filter(tags__title=self.kwargs['tag']),
+            'tags': all_tags,
+        }
+        return content
+
+
+def category_list(request):
+    categoryList = Category.objects.all()
+    latest = Post.objects.order_by('-timestamp')[0:4]
+    author = Author.objects.all()
+
+    context = {
+        "category_list": categoryList,
+        "latest": latest,
+        "author": author,
+    }
+    return context

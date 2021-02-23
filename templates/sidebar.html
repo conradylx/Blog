@@ -1,9 +1,4 @@
 <div class="col-12 col-lg-4 ">
-{#    <div class="header-bar-search d-none d-md-block" style="margin-top: 150px">#}
-{#        <form action="{% url 'search' %}">#}
-{#            <input type="search" name='q' placeholder="Search" style="min-width:300px">#}
-{#        </form>#}
-{#    </div>#}
      <form action="{% url 'search' %}">
       <div class="input-group" style="margin-top: 80px;">
         <input type="text" name='q' class="form-control" placeholder="Search">
@@ -27,6 +22,7 @@
         </div><!-- .about-me -->
         {#                Latest posts #}
         <div class="recent-posts border rounded">
+            <h4 style="margin: 20px 0 -20px 120px">Latest posts</h4>
             {% for latest_posts in latest %}
                 <div class="recent-post-wrap">
                     <figure>
@@ -51,8 +47,9 @@
         </div><!-- .recent-posts -->
 
         <div class="sidebar pl-3 pr-3 pt-5 pb-5 border rounded" style="margin-top: 30px">
+            <h4 style="margin: -10px 0 15px 120px">Latest tags</h4>
             {% for tags in all_tags %}
-                <a href="#"><span class="btn btn-light">#{{ tags }}</span></a>
+                <a href="/tags/{{ tags.title }}"><span class="btn btn-light">#{{ tags }}</span></a>
             {% endfor %}
         </div>
     </div><!-- .sidebar -->
