@@ -43,10 +43,12 @@
                         </div><!-- .entry-content -->
 
                         <form class="contact-form">
-                            <input type="text" placeholder="Name">
-                            <input type="email" placeholder="Email">
-                            <textarea rows="18" cols="6" placeholder="Messages"></textarea>
-                            <input type="submit" value="Read More">
+{#                            <input type="text" placeholder="Name">#}
+{#                            <input type="email" placeholder="Email">#}
+{#                            <textarea rows="18" cols="6" placeholder="Messages"></textarea>#}
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Send message">
                         </form><!-- .contact-form -->
                     </div><!-- .content-wrap -->
                 </div><!-- .col -->

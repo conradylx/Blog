@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Tags, Author, Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from .forms import CommentsForm
+from .forms import CommentsForm, ContactForm
 
 
 def search(request):
@@ -35,6 +35,11 @@ def contact(request):
     latest = Post.objects.order_by('-timestamp')[0:4]
     all_tags = Tags.objects.all()[0:10]
     author = Author.objects.all()
+    form = ContactForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.instance.post = all_posts
+            form.save()
 
     if query:
         all_posts = all_posts.filter(
@@ -46,6 +51,7 @@ def contact(request):
         "latest": latest,
         "all_tags": all_tags,
         "author": author,
+        "form": form,
     }
     return render(request, "contact.html", context)
 

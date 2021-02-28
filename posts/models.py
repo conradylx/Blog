@@ -37,7 +37,7 @@ class Tags(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=120)
-    overview = models.TextField()
+    overview = models.TextField(max_length=500)
     timestamp = models.DateTimeField(auto_now_add=True)
     content = HTMLField()
     comments_count = models.IntegerField(default=0)
@@ -69,3 +69,11 @@ class Comments(models.Model):
     def __str__(self):
         return self.user
 
+
+class Contact(models.Model):
+    user = models.CharField(max_length=100)
+    email = models.EmailField()
+    content = models.TextField()
+
+    def __str__(self):
+        return self.user

@@ -1,7 +1,7 @@
 from django import forms
 from tinymce import TinyMCE
 
-from posts.models import Post, Comments
+from posts.models import Post, Comments, Contact
 
 
 class TinyMCEWidget(TinyMCE):
@@ -30,3 +30,13 @@ class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('user', 'content',)
+
+
+class ContactForm(forms.ModelForm):
+    user = forms.CharField(max_length=100, error_messages=None, required=True, label="Your name")
+    email = forms.EmailField(error_messages=None, required=True, label="Email")
+    content = forms.CharField(widget=forms.Textarea, error_messages=None, required=True, label="Content of your request")
+
+    class Meta:
+        model = Contact
+        fields = ('user', 'email', 'content')

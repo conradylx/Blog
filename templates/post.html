@@ -3,10 +3,10 @@
 {% block content %}
     <style>
     .entry-content img{
-        width: 100%;
+        width: 60%;
     }
     .featured-image img{
-        width: 60%;
+        width: 90%;
     }
     </style>
 
@@ -61,7 +61,7 @@
                                 {% for comment in post.get_comments %}
                                 <div class="comment-body flex justify-content-between" style="margin-top: 20px">
                                         <figure style="width: 10%;">
-                                            <img src="{% static 'images/user-1.jpg' %}" alt="user" class="rounded-circle">
+                                            <img src="{% static 'images/user-1.jpg' %}" alt="user" class="img-thumbnail">
                                         </figure><!-- .comment-author-avatar -->
                                         <div class="comment-wrap" style="border-top: 1px solid silver; ">
                                             <div class="comment-author flex flex-wrap align-items-center">

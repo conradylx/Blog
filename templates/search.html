@@ -10,7 +10,7 @@
                             <div class="posted-date">
                                 {{ object.timestamp|date:"F d  Y, h:i " }}
                             </div><!-- .posted-date -->
-                            <h2 class="entry-title">{{ object.title }}</h2>
+                            <h2 class="entry-title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
                             <div>
                                 {% for post_category in object.categories.all %}
                                     <a href="#"><span class="btn btn-light">#{{ post_category }}</span></a>
@@ -18,7 +18,7 @@
                             </div>
                         </header><!-- .entry-header -->
                         <figure class="featured-image">
-                            <img src="{{ object.post_image.url }}" alt="">
+                            <a href="{{ object.get_absolute_url }}"><img src="{{ object.post_image.url }}" alt=""></a>
                         </figure>
                         <div class="entry-content">
                             <p>{{ object.overview }} </p>
